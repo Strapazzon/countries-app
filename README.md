@@ -6,6 +6,9 @@
 ## Url production 
   [https://countries-app-3a087.web.app](https://countries-app-3a087.web.app/)
 
+## Style Guide
+ [link](design/style-guide.md)
+
 ## Project setup
 ```
 npm install
