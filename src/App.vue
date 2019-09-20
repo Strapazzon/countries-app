@@ -27,8 +27,13 @@ body {
   height: 100%;
   margin: 0px;
   padding: 0px;
+<<<<<<< HEAD
   font-family: 'Nunito Sans', sans-serif;
 
+=======
+
+  font-family: 'Nunito Sans', sans-serif;
+>>>>>>> f123424d6ed9e79d93823306293c0f26be7184a4
   @include themify(null, $themes) {
     background-color: theme(background);
     color: theme(color)
