@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10-browsers
+    working_directory: ~/counties-app
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-npm-deps-{{ checksum "package-lock.json" }}
+            - v1-npm-deps-
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - save_cache:
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Build
+          command: npm run build
+      - run:
+          name: Use production project
+          command: ./node_modules/.bin/firebase use production
+      - run:
+          name: Deploy in staging
+          command: ./node_modules/.bin/firebase deploy --only hosting  --token "$FIREBASE_TOKEN"
+
+workflows:
+  version: 2
+  deploy_production:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+
