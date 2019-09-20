@@ -9,15 +9,17 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-npm-deps-{{ checksum "package-lock.json" }}
-            - v1-npm-deps-
+            - v3-npm-deps-{{ checksum "package-lock.json" }}
+            - v3-npm-deps-
       - run:
           name: Install Dependencies
           command: npm install
       - save_cache:
-          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          key: v3-npm-deps-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+            - ~/.cache
+            - ~/.npm
       - run:
           name: Lint
           command: npm run lint
@@ -45,15 +47,17 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-npm-deps-{{ checksum "package-lock.json" }}
-            - v1-npm-deps-
+            - v3-npm-deps-{{ checksum "package-lock.json" }}
+            - v3-npm-deps-
       - run:
           name: Install Dependencies
           command: npm install
       - save_cache:
-          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          key: v3-npm-deps-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+            - ~/.cache
+            - ~/.npm
       - run:
           name: Lint
           command: npm run lint
@@ -66,15 +70,18 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-npm-deps-{{ checksum "package-lock.json" }}
-            - v1-npm-deps-
+            - v3-npm-deps-{{ checksum "package-lock.json" }}
+            - v3-npm-deps-
       - run:
           name: Install Dependencies
           command: npm install
       - save_cache:
-          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          key: v3-npm-deps-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+            - ~/.cache
+            - ~/.npm
+
       - run:
           name: Test unit
           command: npm run test:unit
@@ -87,15 +94,17 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-npm-deps-{{ checksum "package-lock.json" }}
-            - v1-npm-deps-
+            - v3-npm-deps-{{ checksum "package-lock.json" }}
+            - v3-npm-deps-
       - run:
           name: Install Dependencies
           command: npm install
       - save_cache:
-          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          key: v3-npm-deps-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
+            - ~/.cache
+            - ~/.npm
       - run:
           name: Test e2e
           command: npm run test:e2e-headless

@@ -1,0 +1,24 @@
+$current-theme: light !default;
+
+@mixin themify($attr: null, $themes: $themes) {
+  @each $theme, $map in $themes {
+    // Define current theme
+    $current-theme: map-get($themes, $theme) !global;
+
+    // Themify
+    @if $attr == null {
+      .#{$theme} & { @content; }
+    } @else {
+      &[data-#{$attr}="#{$theme}"] { @content; }
+    }
+
+    // reset current theme
+    $current-theme: null !global;
+  }
+}
+
+@function theme($query, $theme: $current-theme) {
+  @if $query != null {
+    @return map-get($theme, $query);
+  }
+}

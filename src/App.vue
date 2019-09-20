@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div> -->
+
+    <router-view/>
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<style lang="scss">
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined');
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,800&display=swap');
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
+@import './scss/global.scss';
+@import './scss/themes.scss';
+@import './scss/themify.scss';
+
+body {
+  @include themify(null, $themes) {
+    background-color: theme(background)
   }
 }
-</script>
 
-<style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Nunito Sans', sans-serif;
+
+  @include themify(null, $themes) {
+    background-color: theme(background);
+    color: theme(color)
+  }
+
+  display: flex;
+  flex-direction: column;
 }
 </style>
