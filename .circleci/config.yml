@@ -59,6 +59,7 @@ workflows:
           filters:
             branches:
               only: master
+  lint_and_tests:
       - linter:
           filters:
             branches:
