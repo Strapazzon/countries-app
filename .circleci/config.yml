@@ -91,7 +91,7 @@ workflows:
             branches:
               only: develop
       - test_unit:
-        filters:
-            branches:
-              only: develop
+          filters:
+              branches:
+                only: develop
 
