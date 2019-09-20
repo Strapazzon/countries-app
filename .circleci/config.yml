@@ -25,6 +25,9 @@ jobs:
           name: Test unit
           command: npm run test:unit
       - run:
+          name: Test e2e
+          command: npm run test:e2e-headless
+      - run:
           name: Build
           command: npm run build
       - run:
@@ -76,6 +79,27 @@ jobs:
           name: Test unit
           command: npm run test:unit
 
+  test_e2e:
+    docker:
+      - image: circleci/node:10-browsers
+    working_directory: ~/counties-app
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-npm-deps-{{ checksum "package-lock.json" }}
+            - v1-npm-deps-
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - save_cache:
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Test e2e
+          command: npm run test:e2e-headless
+
 workflows:
   version: 2
   deploy_production:
@@ -91,6 +115,10 @@ workflows:
             branches:
               only: develop
       - test_unit:
+          filters:
+              branches:
+                only: develop
+      - test_e2e: 
           filters:
               branches:
                 only: develop
