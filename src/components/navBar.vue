@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div class="navbar padding">
     <div class="title">
       Where in the wolrd?
     </div>
@@ -42,7 +42,6 @@ export default {
     align-items: center;
     justify-content: space-between;
     height: 60px;
-    padding: 0px 60px;
     box-shadow: 0px 0px 3px rgba(0,0,0, 0.2);
 
     .title {
@@ -53,28 +52,9 @@ export default {
 
     .actions {
       button {
-        background: transparent;
-        border: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 32px;
-        cursor: pointer;
-        @include themify(null, $themes) {
-          color: theme(color);
-        }
-
         i {
           transform: rotate(140deg);
-          cursor: pointer;
-          font-size: 14px;
         }
-
-        label {
-          line-height: 16px;
-          margin-left: 5px;
-          cursor: pointer;
-        } 
       }
     }
   }

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined');
 @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,800&display=swap');
-
 @import './themes.scss';
 @import './themify.scss';
 
@@ -11,6 +10,46 @@ html, body {
   padding: 0px;
 }
 
-button, input {
+button, input, select {
+  font-family: "Nunito Sans", sans-serif;
   outline: none;
+}
+
+button {
+  user-select: none;
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  cursor: pointer;
+  @include themify(null, $themes) {
+    color: theme(color);
+  }
+
+  i {
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  label {
+    line-height: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+  } 
+}
+
+@media (max-width: 375px) {
+  .padding {
+    padding: 0px 20px;
+  }
+  .search, .filter {
+    margin-top: 30px !important;
+  }
+}
+@media (min-width: 376px) {
+  .padding {
+    padding: 0px 60px;
+  }
 }
