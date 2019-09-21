@@ -1,12 +1,8 @@
 <template>
   <div id="app">
     <NavBar></NavBar>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
-
     <router-view/>
+
   </div>
 </template>
 
@@ -31,6 +27,17 @@ export default {
         document.body.className = 'light';
       }
     }
+  },
+  data () {
+    return {
+      transitionName: 'slide-left'
+    }
+  },
+  beforeRouteUpdate (to, from, next) {
+    const toDepth = to.path.split('/').length
+    const fromDepth = from.path.split('/').length
+    this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+    next()
   }
 }
 </script>
@@ -43,6 +50,7 @@ export default {
   margin: 0px;
   padding: 0px;
   font-family: 'Nunito Sans', sans-serif;
+  overflow: hidden;
 
   @include themify(null, $themes) {
     background-color: theme(background);
