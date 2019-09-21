@@ -4,8 +4,8 @@
       v-on:selected="onSelectedCountry"
       v-for="country in countries"
       :key="country.alpha3Code"
-      :country="country"
-    ></CardCountry>
+      :country="country">
+    </CardCountry>
   </div>
 </template>
 

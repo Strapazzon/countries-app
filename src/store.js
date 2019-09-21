@@ -59,8 +59,8 @@ export default new Vuex.Store({
     },
 
     fetchBordersOfDetailCountry(context, codes) {
-      if (!codes) return context.commit('changeBordersOfDetailCountry', []);
-
+      if (!codes || !codes.length) return context.commit('changeBordersOfDetailCountry', []);
+      
       axios.get(`${env.URL_API}/alpha?codes=${codes.toString().replace(/,/g, ';')}`).then(response=>{
         context.commit('changeBordersOfDetailCountry', response.data)
       })

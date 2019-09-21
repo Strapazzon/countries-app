@@ -1,14 +1,18 @@
 <template>
   <div class="custom-select">
-    <div 
-      v-on:click="showOptions = !showOptions" 
-      class="select-selected " 
-      :class="{'select-arrow-active': showOptions}">{{value || placeholder}}
+    <div class="ripple">
+      <div 
+        v-on:click="showOptions = !showOptions" 
+        class="select-selected" 
+        :class="{'select-arrow-active': showOptions}">{{value || placeholder}}
+      </div>
     </div>
 
-    <div class="select-items" v-if="showOptions">
-      <div v-for="option in options" :key="option" v-on:click="onSelected(option)">{{option}}</div>
-    </div>
+    <transition name="fade">
+      <div class="select-items" v-if="showOptions">
+        <div class="ripple" v-for="option in options" :key="option" v-on:click="onSelected(option)">{{option}}</div>
+      </div>
+    </transition>
   </div>
 </template>
 

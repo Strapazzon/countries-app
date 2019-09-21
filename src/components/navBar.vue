@@ -1,10 +1,10 @@
 <template>
   <div class="navbar padding">
-    <div class="title">
+    <div class="title ripple" v-on:click="gotToHome">
       Where in the wolrd?
     </div>
     <div class="actions">
-      <button v-on:click="changeMode">
+      <button class="ripple" v-on:click="changeMode">
         <i :class="darkMode ? 'material-icons' : 'material-icons-outlined'">brightness_2</i> 
         <label>Dark Mode</label>
       </button>
@@ -25,6 +25,9 @@ export default {
   methods: {
     changeMode() {
       this.$store.commit('changeDarkMode')
+    },
+    gotToHome() {
+      this.$router.push({ path: '/' })
     }
   }
 }
@@ -45,9 +48,11 @@ export default {
     box-shadow: 0px 0px 3px rgba(0,0,0, 0.2);
 
     .title {
+      user-select: none;
+      cursor: pointer;
       font-weight: 600;
       font-size: 16px;
-      line-height: 25px;
+      line-height: 60px;
     }
 
     .actions {

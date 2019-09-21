@@ -1,7 +1,7 @@
 <template>
   <div class="detailPage padding">
     <div class="actions">
-      <button v-on:click="canBack">
+      <button class="ripple" v-on:click="canBack">
         <i class="material-icons">chevron_left</i>
         Back
       </button>
@@ -29,7 +29,7 @@
         </div>
         <div class="borderCountries">
           Border Countries:
-          <button v-on:click="toDetailCountry(border)" v-for="border in borders" :key="border.name">{{ border.name }}</button>
+          <button class="ripple" v-on:click="toDetailCountry(border)" v-for="border in borders" :key="border.name">{{ border.name }}</button>
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@ export default {
     width: 100px;
     height: 35px;
     border-radius: 4px;
-    box-shadow: 0px 0px 4px -1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 3px -1px rgba(0, 0, 0, 0.3);
     i {
       margin-right: 10px;
     }
@@ -115,7 +115,7 @@ export default {
 
     .flag {
       width: auto;
-      max-width: 50%;
+      max-width: 45%;
       min-width: 187.5px;
       img {
         box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
@@ -129,7 +129,7 @@ export default {
   .detail {
     box-sizing: border-box;
     min-width: 187.5px;
-    width: 49%;
+    width: 55%;
     padding: 30px 30px 30px 60px;
 
     .fieldName { 
@@ -176,7 +176,29 @@ export default {
         padding: 0px 10px;
       }
     }
-
   }
 }
+  @media (max-width: 375px) {
+    .detailPage{
+      overflow: auto !important;
+      padding-bottom: 100px;
+    }
+
+    .content {
+      flex-direction: column;
+      .flag {
+        width: 100%;
+        max-width: none;
+      }
+      .detail {
+        width: 100%;
+        padding: 0px;
+        margin-top: 20px;
+
+        .fieldsData {
+          flex-direction: column;
+        }
+      }
+    }  
+  }
 </style>
