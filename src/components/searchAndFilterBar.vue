@@ -29,6 +29,11 @@ export default {
       },
       set (value) {
         this.$store.commit('changeSearchCountryValue', value)
+        if (value && value.length >= 3) {
+          this.$store.dispatch('fetchCountries', `name/${value.toLowerCase()}`);
+        } else if (!value || !value.length) {
+          this.$store.dispatch('fetchCountries', `all`);
+        }
       }
     },
 
@@ -38,6 +43,9 @@ export default {
       },
       set (value) {
         this.$store.commit('changeFilterRegion', value)
+        if (value) {
+          this.$store.dispatch('fetchCountries', `region/${value.toLowerCase()}`);
+        }
       }
     }
   }
@@ -49,13 +57,14 @@ export default {
   @import '~@/scss/global.scss';
 
   .searcAndFilterBar {
-    margin-top: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 
     .search {
       height: 45px;
+      margin-top: 60px;
       width: 300px;
       border-radius: 6px;
       display: flex;
@@ -89,6 +98,7 @@ export default {
 
     .filter {
       @include themify(null, $themes) {
+        margin-top: 60px;
         background-color: theme(primary);
         border-radius: 6px;
         box-shadow: 0px 0px 4px -1px rgba(0, 0, 0, 0.23);

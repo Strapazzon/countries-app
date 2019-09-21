@@ -52,28 +52,9 @@ export default {
 
     .actions {
       button {
-        background: transparent;
-        border: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 32px;
-        cursor: pointer;
-        @include themify(null, $themes) {
-          color: theme(color);
-        }
-
         i {
           transform: rotate(140deg);
-          cursor: pointer;
-          font-size: 14px;
         }
-
-        label {
-          line-height: 16px;
-          margin-left: 5px;
-          cursor: pointer;
-        } 
       }
     }
   }
