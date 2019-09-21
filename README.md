@@ -1,4 +1,4 @@
-# countries-app
+# Countries APP
 APP to view country demographics
 
 ## Circle CI
