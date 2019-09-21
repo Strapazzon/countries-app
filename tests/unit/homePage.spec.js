@@ -6,7 +6,7 @@ describe('HomePage.vue', () => {
   it('Create component', () => {
     const wrapper = shallowMount(HomePage, {
     })
-    expect(wrapper.text()).to.include('Home')
+    expect(wrapper.text()).to.include('')
   })
 })
 
