@@ -3,6 +3,6 @@
 describe('My First Test', () => {
   it('Visits the app root url', () => {
     cy.visit('/')
-    cy.contains('h1', 'Home')
+    cy.get('.navbar > div.title').contains('Where in the wolrd?')
   })
 })

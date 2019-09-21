@@ -1,19 +1,24 @@
 <template>
-  <div class="home">
-    <h1>Home</h1>
+  <div class="homePage">
+    <SearcAndFilterBar></SearcAndFilterBar>
+
   </div>
 </template>
 
 <script>
-
+import SearcAndFilterBar from '@/components/searchAndFilterBar.vue';
 export default {
   name: 'homePage',
   components: {
+    SearcAndFilterBar
   }
 }
 </script>
 
 
 <style scoped lang="scss">
+  .homePage {
+    padding: 0px 60px;
+  }
 
 </style>

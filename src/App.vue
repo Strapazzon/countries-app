@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <NavBar></NavBar>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -9,13 +10,33 @@
   </div>
 </template>
 
-<style lang="scss">
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined');
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,800&display=swap');
+<script>
+import NavBar from './components/navBar';
 
-@import './scss/global.scss';
-@import './scss/themes.scss';
-@import './scss/themify.scss';
+export default {
+  name: 'app',
+  components: {
+    NavBar
+  },
+  computed: {
+    darkMode(){
+      return this.$store.state.darkMode
+    }
+  },
+  watch: {
+    darkMode(newValue) {
+      if (newValue) {
+        document.body.className = 'dark';
+      } else {
+        document.body.className = 'light';
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+@import '~@/scss/global.scss';
 
 body {
   @include themify(null, $themes) {

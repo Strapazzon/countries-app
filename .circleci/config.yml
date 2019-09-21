@@ -36,7 +36,7 @@ jobs:
           name: Use production project
           command: ./node_modules/.bin/firebase use production
       - run:
-          name: Deploy in staging
+          name: Deploy in production
           command: ./node_modules/.bin/firebase deploy --only hosting  --token "$FIREBASE_TOKEN"
 
   linter:
