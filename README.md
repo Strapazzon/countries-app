@@ -1,7 +1,10 @@
-# countries-app
+# Countries APP
+APP to view country demographics
+
 
 ## Circle CI
 [![CircleCI](https://circleci.com/gh/Strapazzon/countries-app/tree/master.svg?style=svg)](https://circleci.com/gh/Strapazzon/countries-app/tree/master)
+
 
 ## Url production 
   [https://countries-app-3a087.web.app](https://countries-app-3a087.web.app/)
@@ -24,15 +27,17 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
+### Run unit tests
 ```
-npm run test
+npm run test:unit
+```
+
+### Run e2e tests
+```
+npm run test:e2e
 ```
 
 ### Lints and fixes files
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
