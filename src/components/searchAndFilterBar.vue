@@ -1,6 +1,6 @@
 <template>
   <div class="searcAndFilterBar">
-    <div class="search">
+    <div class="search ripple">
       <i class="material-icons-outlined">search</i>
       <input type="text" v-model="searchCountryValue" placeholder="Search for a country">
     </div>
