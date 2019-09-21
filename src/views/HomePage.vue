@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="homePage">
     <h1>Home</h1>
   </div>
 </template>
@@ -15,5 +15,8 @@ export default {
 
 
 <style scoped lang="scss">
+  .homePage {
+    padding: 0px 60px;
+  }
 
 </style>

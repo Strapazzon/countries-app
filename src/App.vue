@@ -17,6 +17,20 @@ export default {
   name: 'app',
   components: {
     NavBar
+  },
+  computed: {
+    darkMode(){
+      return this.$store.state.darkMode
+    }
+  },
+  watch: {
+    darkMode(newValue) {
+      if (newValue) {
+        document.body.className = 'dark';
+      } else {
+        document.body.className = 'light';
+      }
+    }
   }
 }
 </script>
