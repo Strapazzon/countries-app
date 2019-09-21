@@ -5,14 +5,23 @@
       <input type="text" v-model="searchCountryValue" placeholder="Search for a country">
     </div>
     <div class="filter">
-
+      <CustomSelect :options="optionsFilter" v-model="filterRegion" placeholder="Filter by Region"></CustomSelect>
     </div>
   </div>
 </template>
 
 <script>
+import CustomSelect from './customSelect';
 export default {
   name: 'searcAndFilterBar',
+  components:{
+    CustomSelect
+  },
+  data() {
+    return {
+      optionsFilter: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
+    }
+  },
   computed: {
     searchCountryValue: {
       get () {
@@ -20,6 +29,15 @@ export default {
       },
       set (value) {
         this.$store.commit('changeSearchCountryValue', value)
+      }
+    },
+
+    filterRegion: {
+      get () {
+        return this.$store.state.filterRegion
+      },
+      set (value) {
+        this.$store.commit('changeFilterRegion', value)
       }
     }
   }
@@ -33,6 +51,8 @@ export default {
   .searcAndFilterBar {
     margin-top: 60px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .search {
       height: 45px;
@@ -58,11 +78,23 @@ export default {
           height: 20px;
           font-size: 14px;
           color: theme(color-secondary);
+          user-select: none;
           &::placeholder {
             color: theme(color-secondary);
             font-weight: 300;
           }
         }
+      }
+    }
+
+    .filter {
+      @include themify(null, $themes) {
+        background-color: theme(primary);
+        border-radius: 6px;
+        box-shadow: 0px 0px 4px -1px rgba(0, 0, 0, 0.23);
+        font-size: 14px;
+        height: 45px;
+        border-radius: 6px;
       }
     }
 

@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     darkMode: false,
-    searchCountryValue: ''
+    searchCountryValue: '',
+    filterRegion: ''
   },
   mutations: {
     changeDarkMode (state) {
@@ -15,6 +16,10 @@ export default new Vuex.Store({
 
     changeSearchCountryValue (state, value) {
       state.searchCountryValue = value
+    },
+
+    changeFilterRegion (state, value) {
+      state.filterRegion = value
     }
 
   },

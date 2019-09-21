@@ -11,6 +11,17 @@ html, body {
   padding: 0px;
 }
 
-button, input {
+button, input, select {
   outline: none;
+}
+
+@media (max-width: 375px) {
+  .padding {
+    padding: 0px 20px;
+  }
+}
+@media (min-width: 376px) {
+  .padding {
+    padding: 0px 60px;
+  }
 }

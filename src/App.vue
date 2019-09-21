@@ -38,12 +38,6 @@ export default {
 <style lang="scss">
 @import '~@/scss/global.scss';
 
-body {
-  @include themify(null, $themes) {
-    background-color: theme(background)
-  }
-}
-
 #app {
   height: 100%;
   margin: 0px;

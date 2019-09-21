@@ -1,5 +1,5 @@
 <template>
-  <div class="detailPage">
+  <div class="detailPage padding">
     <h1>This is an detail page</h1>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
 
 <style scoped lang="scss">
   .detailPage {
-    padding: 0px 60px;
+    
   }
 
 </style>

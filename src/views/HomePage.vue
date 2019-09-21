@@ -1,5 +1,5 @@
 <template>
-  <div class="homePage">
+  <div class="homePage padding">
     <SearcAndFilterBar></SearcAndFilterBar>
 
   </div>
@@ -18,7 +18,7 @@ export default {
 
 <style scoped lang="scss">
   .homePage {
-    padding: 0px 60px;
+    
   }
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div class="navbar padding">
     <div class="title">
       Where in the wolrd?
     </div>
@@ -42,7 +42,6 @@ export default {
     align-items: center;
     justify-content: space-between;
     height: 60px;
-    padding: 0px 60px;
     box-shadow: 0px 0px 3px rgba(0,0,0, 0.2);
 
     .title {
