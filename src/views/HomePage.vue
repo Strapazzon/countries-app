@@ -1,14 +1,16 @@
 <template>
   <div class="homePage">
-    <h1>Home</h1>
+    <SearcAndFilterBar></SearcAndFilterBar>
+
   </div>
 </template>
 
 <script>
-
+import SearcAndFilterBar from '@/components/searchAndFilterBar.vue';
 export default {
   name: 'homePage',
   components: {
+    SearcAndFilterBar
   }
 }
 </script>
