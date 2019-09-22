@@ -25,10 +25,16 @@ describe('Naviagation test', () => {
   it('Go to back', ()=>{
     cy.get('.detailPage > .actions > .ripple').click()
     cy.get('.fieldName').contains('Brazil')
+    cy.get('.card').should('have.length', 1)
   })
 
   it('Go to home when click title', ()=>{
     cy.get('.title').click()
+    cy.get('.card').should('have.length', 1)
+  })
+
+  it('Clean Search', () => {
+    cy.get('.search > input[type=text]').type('')
     cy.get('.card').should('have.length', 250)
   })
 
@@ -36,6 +42,5 @@ describe('Naviagation test', () => {
     cy.get('.select-selected').click()
     cy.get('.select-items > :nth-child(3)').click()
     cy.get('.card').should('have.length', 50)
-
   })
 })

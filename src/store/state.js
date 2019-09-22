@@ -3,7 +3,7 @@ export const state = {
   darkMode: false,
   searchCountryValue: '',
   filterRegion: '',
-  countries: Array,
+  countries: undefined,
   detailCountry: Object,
   bordersOfDetailCountry: Array
 }
