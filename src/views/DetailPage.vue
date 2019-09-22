@@ -63,7 +63,7 @@ export default {
     },
     number(value) {
       if (!value) return ''
-      return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 3 }).format(value);
+      return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 9 }).format(value);
     }
   },
   computed: {
