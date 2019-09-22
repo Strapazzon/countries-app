@@ -39,7 +39,7 @@ export default {
 
     filterRegion: {
       get () {
-        return this.$store.state.filterRegion
+        return this.$store && this.$store.state.filterRegion
       },
       set (value) {
         this.$store.commit('changeFilterRegion', value)

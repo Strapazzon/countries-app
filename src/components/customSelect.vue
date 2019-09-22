@@ -4,7 +4,7 @@
       <div 
         v-on:click="showOptions = !showOptions" 
         class="select-selected" 
-        :class="{'select-arrow-active': showOptions}">{{value || placeholder}}
+        :class="{'select-arrow-active': showOptions}">{{displayValue || placeholder}}
       </div>
     </div>
 
@@ -29,14 +29,20 @@ export default {
   methods: {
     onSelected(option) {
       this.showOptions = false; 
-      this.value = option;
-      this.$emit('input',option)
+      this.$emit('input', option)
+    }
+  },
+  computed:{
+    displayValue: {
+      get(){
+        return this.$attrs.value;
+
+      } 
     }
   },
   data() {
     return {
-      showOptions: false,
-      value: ''
+      showOptions: false
     }
   }
     
