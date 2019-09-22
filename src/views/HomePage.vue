@@ -16,7 +16,7 @@ export default {
     GridCountries
   },
   mounted() {
-    this.$store && this.$store.dispatch('fetchCountries', 'all');
+    this.$store && !this.$store.state.countries && this.$store.dispatch('fetchCountries', 'all');
   },
   methods: {
     showDetail(country) {
