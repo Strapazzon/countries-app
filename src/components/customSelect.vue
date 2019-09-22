@@ -36,7 +36,6 @@ export default {
     displayValue: {
       get(){
         return this.$attrs.value;
-
       } 
     }
   },

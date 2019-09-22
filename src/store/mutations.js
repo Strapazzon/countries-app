@@ -6,10 +6,12 @@ export const mutations = {
 
   changeSearchCountryValue (state, value) {
     state.searchCountryValue = value
+    state.filterRegion = ''
   },
 
   changeFilterRegion (state, value) {
     state.filterRegion = value
+    state.searchCountryValue = ''
   },
 
   changeCountries (state, value) {
