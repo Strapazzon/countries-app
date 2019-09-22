@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     darkMode() {
-      return this.$store.state.darkMode
+      return this.$store && this.$store.state.darkMode
     }
   },
   methods: {

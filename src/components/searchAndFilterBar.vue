@@ -25,7 +25,7 @@ export default {
   computed: {
     searchCountryValue: {
       get () {
-        return this.$store.state.searchCountryValue
+        return this.$store && this.$store.state.searchCountryValue
       },
       set (value) {
         this.$store.commit('changeSearchCountryValue', value)
