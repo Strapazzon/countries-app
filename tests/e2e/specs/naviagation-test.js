@@ -1,4 +1,6 @@
 
+import { symlink } from "fs"
+
 describe('Naviagation test', () => {
   it('Visits the app root url', () => {
     cy.visit('/')
@@ -17,7 +19,7 @@ describe('Naviagation test', () => {
     cy.get('.borderCountries > button').should('have.length', 10)
   })
 
-  it('Open Border Argentina', ()=>{
+  it('Open Border Argentina', () => {
     cy.get('.borderCountries > :nth-child(1)').click()
     cy.get('.fieldName').contains('Argentina')
   })
@@ -25,20 +27,19 @@ describe('Naviagation test', () => {
   it('Go to back', ()=>{
     cy.get('.detailPage > .actions > .ripple').click()
     cy.get('.fieldName').contains('Brazil')
-    cy.get('.card').should('have.length', 1)
   })
 
-  it('Go to home when click title', ()=>{
+  it('Go to home when click title', () => {
     cy.get('.title').click()
     cy.get('.card').should('have.length', 1)
   })
 
   it('Clean Search', () => {
-    cy.get('.search > input[type=text]').type('')
+    cy.get('input').clear()
     cy.get('.card').should('have.length', 250)
   })
 
-  it('Filter by region', ()=>{
+  it('Filter by region', () => {
     cy.get('.select-selected').click()
     cy.get('.select-items > :nth-child(3)').click()
     cy.get('.card').should('have.length', 50)
