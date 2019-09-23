@@ -37,9 +37,8 @@ export default {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 60px;
-    height: 40vh;
-    min-height: 100%;
     overflow: scroll;
+    width: calc(100% + 15px);
     @media (max-width: 376px) {
       .card {
         width: 100%;

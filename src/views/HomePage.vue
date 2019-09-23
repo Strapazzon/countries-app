@@ -28,5 +28,9 @@ export default {
 
 
 <style scoped lang="scss">
+  .homePage {
+    height: 100%;
+    overflow: auto;
+  }
 
 </style>
