@@ -58,6 +58,7 @@ export default {
   border-radius: 4px;
   width: 200px;
   height: 280px;
+  margin-right: 15px;
   overflow: hidden;
   margin-bottom: 30px;
   @include themify(null, $themes) {
