@@ -60,7 +60,9 @@ export default {
   height: 280px;
   margin-right: 15px;
   overflow: hidden;
-  margin-bottom: 30px;
+  box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.3);
+  margin-bottom: 15px;
+  margin-top: 15px;
   @include themify(null, $themes) {
     background-color: theme(primary) !important;
   }
